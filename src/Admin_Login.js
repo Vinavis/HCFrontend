@@ -17,34 +17,21 @@ const Admin_Login = () => {
     password: false,
   });
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    const loginData = {
-      email,
-      password,
-    };
+    // Static credentials
+    const STATIC_EMAIL = "admin@gmail.com";
+    const STATIC_PASSWORD = "admin";
 
-    try {
-      const response = await fetch("https://hcbackend-production-2857.up.railway.app/admin/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(loginData),
-      });
-
-      if (response.ok) {
-        const data = await response.text();
-        alert(data);
-        // Simulate navigation by changing window location
-        window.location.href = "/dashboard";
-      } else {
-        const error = await response.text();
-        setErrorMessage(error);
-      }
-    } catch (err) {
-      setErrorMessage("Something went wrong. Please try again.");
+    // Check if entered credentials match static credentials
+    if (email === STATIC_EMAIL && password === STATIC_PASSWORD) {
+      // Successful login
+      alert("Login Successful!");
+      window.location.href = "/dashboard";
+    } else {
+      // Failed login
+      setErrorMessage("Invalid email or password");
     }
   };
 
@@ -124,7 +111,7 @@ const Admin_Login = () => {
   const buttonStyle = {
     width: "100%",
     padding: "14px",
-    background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.secondary} 100%)`, // Fixed gradient syntax
+    background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.secondary} 100%)`,
     border: "none",
     color: "#fff",
     borderRadius: "12px",
