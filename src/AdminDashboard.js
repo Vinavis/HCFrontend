@@ -140,7 +140,7 @@ const AdminDashboard = () => {
 
   const fetchSellers = async () => {
     try {
-      const response = await fetch("http://localhost:8090/api/seller/all");
+      const response = await fetch("https://hcbackend-production-2857.up.railway.app/api/seller/all");
       const data = await response.json();
       setSellers(Array.isArray(data) ? data : []);
     } catch (error) {
@@ -151,7 +151,7 @@ const AdminDashboard = () => {
 
   const fetchCustomers = async () => {
     try {
-      const response = await fetch("http://localhost:8090/api/customer/all");
+      const response = await fetch("https://hcbackend-production-2857.up.railway.app/api/customer/all");
       const data = await response.json();
       setCustomers(Array.isArray(data) ? data : []);
     } catch (error) {
@@ -162,7 +162,7 @@ const AdminDashboard = () => {
 
   const addSeller = async () => {
     try {
-      await fetch("http://localhost:8090/api/seller/register", {
+      await fetch("https://hcbackend-production-2857.up.railway.app/api/seller/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newSeller),
@@ -176,7 +176,7 @@ const AdminDashboard = () => {
 
   const addCustomer = async () => {
     try {
-      await fetch("http://localhost:8090/api/register", {
+      await fetch("https://hcbackend-production-2857.up.railway.app/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newCustomer),
@@ -190,7 +190,7 @@ const AdminDashboard = () => {
 
   const deleteSeller = async (id) => {
     try {
-      await fetch(`http://localhost:8090/api/seller/delete/${id}`, {
+      await fetch(`https://hcbackend-production-2857.up.railway.app/api/seller/delete/${id}`, {
         method: "DELETE",
       });
       fetchSellers(); // Refresh sellers
@@ -201,7 +201,7 @@ const AdminDashboard = () => {
 
   const deleteCustomer = async (id) => {
     try {
-      await fetch(`http://localhost:8090/api/customer/delete/${id}`, {
+      await fetch(`https://hcbackend-production-2857.up.railway.app/api/customer/delete/${id}`, {
         method: "DELETE",
       });
       fetchCustomers(); // Refresh customers

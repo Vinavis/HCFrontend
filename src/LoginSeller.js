@@ -20,7 +20,7 @@ const LoginSeller = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:8090/api/seller/login", {
+    fetch("https://hcbackend-production-2857.up.railway.app/api/seller/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

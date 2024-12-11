@@ -26,7 +26,7 @@ const Seller = () => {
   const fetchImages = async (sellerGmail) => {
     try {
       const response = await fetch(
-        `http://localhost:8090/api/seller/images/seller/${sellerGmail}`
+        `https://hcbackend-production-2857.up.railway.app/api/seller/images/seller/${sellerGmail}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch images");
@@ -49,7 +49,7 @@ const Seller = () => {
       formData.append("itemSummary", itemSummary);
 
       const response = await fetch(
-        "http://localhost:8090/api/seller/images/upload",
+        "https://hcbackend-production-2857.up.railway.app/api/seller/images/upload",
         {
           method: "POST",
           body: formData,
@@ -81,7 +81,7 @@ const Seller = () => {
   const handleUpdate = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8090/api/seller/images/${editingImageId}`,
+        `https://hcbackend-production-2857.up.railway.app/api/seller/images/${editingImageId}`,
         {
           method: "PUT",
           headers: {
@@ -110,7 +110,7 @@ const Seller = () => {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:8090/api/seller/images/${id}`,
+        `https://hcbackend-production-2857.up.railway.app/api/seller/images/${id}`,
         {
           method: "DELETE",
         }

@@ -23,7 +23,7 @@ function EmailForm() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8090/api/email/send",
+        "https://hcbackend-production-2857.up.railway.app/api/email/send",
         null,
         {
           params: { email, total: parseFloat(total) },

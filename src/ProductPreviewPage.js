@@ -29,7 +29,7 @@ const ProductPreviewPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8090/api/cart/add",
+        "https://hcbackend-production-2857.up.railway.app/api/cart/add",
         cartItem
       );
       alert(`${product.itemName} has been added to your cart.`);

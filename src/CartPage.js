@@ -137,7 +137,7 @@ const CartPage = () => {
   const fetchCartItems = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8090/api/cart/${userName}`
+        `https://hcbackend-production-2857.up.railway.app/api/cart/${userName}`
       );
       setCartItems(response.data);
     } catch (error) {
@@ -148,7 +148,7 @@ const CartPage = () => {
   const updateItemCount = async (id, count) => {
     try {
       await axios.put(
-        `http://localhost:8090/api/cart/updateCount/${id}/${count}`
+        `https://hcbackend-production-2857.up.railway.app/api/cart/updateCount/${id}/${count}`
       );
       fetchCartItems();
     } catch (error) {
@@ -158,7 +158,7 @@ const CartPage = () => {
 
   const removeItem = async (id) => {
     try {
-      await axios.delete(`http://localhost:8090/api/cart/remove/${id}`);
+      await axios.delete(`https://hcbackend-production-2857.up.railway.app/api/cart/remove/${id}`);
       fetchCartItems();
     } catch (error) {
       console.error("Error removing item:", error);
